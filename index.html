@@ -815,66 +815,31 @@ body{font-family:var(--fa);background:var(--dark);color:var(--white);min-height:
       <!-- TAB: Settings -->
       <div id="tabSettings" style="display:none">
         <div style="font-family:var(--ff);font-size:22px;font-weight:700;margin-bottom:24px">⚙️ الإعدادات</div>
-
-        <!-- DB STATUS -->
         <div id="dbStatus"></div>
-
-        <!-- JSONBIN SETUP -->
-        <div style="background:var(--dark2);border:1px solid rgba(59,130,246,.25);border-radius:16px;padding:26px;max-width:600px;margin-bottom:20px">
-          <div style="font-family:var(--ff);font-size:16px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px">
-            🌐 ربط قاعدة البيانات المشتركة
+        <div style="background:var(--dark2);border:1px solid rgba(59,130,246,.25);border-radius:16px;padding:26px;max-width:620px;margin-bottom:20px">
+          <div style="font-family:var(--ff);font-size:16px;font-weight:600;margin-bottom:8px">🔥 ربط Firebase — قاعدة بيانات مشتركة مجانية</div>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.9">فقط رابط واحد وخلاص! لا مفاتيح معقدة.</div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:22px">
+            <div style="display:flex;gap:12px"><div style="width:26px;height:26px;min-width:26px;background:var(--blue2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">1</div><div style="font-size:13px;line-height:1.9">اذهب إلى <a href="https://console.firebase.google.com" target="_blank" style="color:var(--blue3);font-weight:600">console.firebase.google.com</a> وسجّل بحسابك Google</div></div>
+            <div style="display:flex;gap:12px"><div style="width:26px;height:26px;min-width:26px;background:var(--blue2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">2</div><div style="font-size:13px;line-height:1.9">اضغط <b>"Add project"</b> ← اختر أي اسم ← اضغط Continue حتى ينتهي</div></div>
+            <div style="display:flex;gap:12px"><div style="width:26px;height:26px;min-width:26px;background:var(--blue2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">3</div><div style="font-size:13px;line-height:1.9">من القائمة اليسرى: <b>Build</b> ← <b>Realtime Database</b> ← <b>"Create database"</b></div></div>
+            <div style="display:flex;gap:12px"><div style="width:26px;height:26px;min-width:26px;background:var(--blue2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">4</div><div style="font-size:13px;line-height:1.9">اختر أي منطقة ← اختر <b>"Start in test mode"</b> ← Enable</div></div>
+            <div style="display:flex;gap:12px"><div style="width:26px;height:26px;min-width:26px;background:var(--blue2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">5</div><div style="font-size:13px;line-height:1.9">انسخ الرابط: <code style="background:rgba(255,255,255,.07);padding:2px 8px;border-radius:5px">https://YOUR-PROJECT-default-rtdb.firebaseio.com</code></div></div>
+            <div style="display:flex;gap:12px"><div style="width:26px;height:26px;min-width:26px;background:rgba(34,197,94,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#22c55e">6</div><div style="font-size:13px;line-height:1.9;color:rgba(255,255,255,.85)">الصقه في الخانة أدناه ← اضغط <b style="color:#22c55e">حفظ وربط</b> ✅</div></div>
           </div>
-          <div style="font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.8">
-            لكي يرى المشترون تغييراتك، يجب ربط المتجر بـ JSONBin — خدمة مجانية تخزن بيانات المنتجات على الإنترنت.
+          <div class="field" style="margin-bottom:16px">
+            <label>🔗 رابط Firebase Database</label>
+            <input id="inp-fburl" placeholder="https://YOUR-PROJECT-default-rtdb.firebaseio.com" style="font-family:monospace;font-size:13px">
           </div>
-
-          <!-- Steps -->
-          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:24px">
-            <div style="display:flex;gap:12px;align-items:flex-start">
-              <div style="width:26px;height:26px;background:var(--blue2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">1</div>
-              <div style="font-size:13px;line-height:1.8">
-                اذهب إلى <a href="https://jsonbin.io" target="_blank" style="color:var(--blue3)">jsonbin.io</a> وأنشئ حساباً مجانياً
-              </div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:flex-start">
-              <div style="width:26px;height:26px;background:var(--blue2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">2</div>
-              <div style="font-size:13px;line-height:1.8">
-                اضغط على صورة حسابك (أعلى اليمين) ← <b>API Keys</b> ← انسخ <b>Secret Key</b>
-              </div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:flex-start">
-              <div style="width:26px;height:26px;background:var(--blue2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">3</div>
-              <div style="font-size:13px;line-height:1.8">
-                الصق المفتاح أدناه واضغط "إنشاء قاعدة بيانات" — سيتم كل شيء تلقائياً!
-              </div>
-            </div>
-          </div>
-
-          <div class="field" style="margin-bottom:14px">
-            <label>🔑 Master Key (Secret Key من JSONBin)</label>
-            <input id="inp-mkey" type="password" placeholder="$2a$10$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" style="font-family:monospace;font-size:13px">
-          </div>
-          <button id="initBinBtn" onclick="initBin()" style="background:linear-gradient(135deg,var(--blue2),var(--blue3));border:none;color:#fff;padding:12px 24px;border-radius:9px;font-family:var(--fa);font-size:14px;font-weight:600;cursor:pointer;margin-bottom:16px;width:100%">
-            🚀 إنشاء قاعدة بيانات جديدة تلقائياً
-          </button>
-
-          <div style="border-top:1px solid var(--border);padding-top:16px;margin-top:4px">
-            <div style="font-size:12px;color:var(--muted);margin-bottom:10px">إذا كان لديك Bin ID موجود مسبقاً:</div>
-            <div class="field">
-              <label>Bin ID</label>
-              <input id="inp-binid" placeholder="xxxxxxxxxxxxxxxxxxxxxxxx" style="font-family:monospace;font-size:13px">
-            </div>
-          </div>
+          <button onclick="saveFirebase()" style="background:linear-gradient(135deg,#22c55e,#16a34a);border:none;color:#fff;padding:13px;border-radius:9px;font-family:var(--fa);font-size:14px;font-weight:600;cursor:pointer;width:100%">✅ حفظ وربط قاعدة البيانات</button>
         </div>
-
-        <!-- GENERAL SETTINGS -->
-        <div style="background:var(--dark2);border:1px solid var(--border);border-radius:14px;padding:26px;max-width:600px">
-          <div style="font-family:var(--ff);font-size:16px;font-weight:600;margin-bottom:18px">🔒 إعدادات عامة</div>
+        <div style="background:var(--dark2);border:1px solid var(--border);border-radius:14px;padding:26px;max-width:620px">
+          <div style="font-family:var(--ff);font-size:16px;font-weight:600;margin-bottom:18px">🔒 إعدادات الأمان</div>
           <div class="field" style="margin-bottom:18px">
             <label>كلمة مرور المدير الجديدة</label>
             <input id="newPw" type="password" placeholder="اتركه فارغاً للإبقاء على الحالية">
           </div>
-          <button onclick="saveSettings()" class="apbtn">💾 حفظ جميع الإعدادات</button>
+          <button onclick="saveSettings()" class="apbtn">💾 حفظ الإعدادات</button>
         </div>
       </div>
 
@@ -886,8 +851,7 @@ body{font-family:var(--fa);background:var(--dark);color:var(--white);min-height:
 // ===== CONFIG =====
 const PWKEY='siya_admin_pw';
 const DEF_PW='siya2024';
-const BIN_KEY='siya_bin_id';
-const MKEY='siya_master_key';
+const FB_KEY='siya_firebase_url';
 
 const defaultProds=[
   {id:1,name:'آيفون 15 برو ماكس',desc:'أحدث إصدار بكاميرا 48MP وشريحة A17 Bionic الثورية',price:4599,old:5200,cat:'جوالات',em:'📱',badge:'hot',bg:'#0f1a35'},
@@ -898,81 +862,55 @@ const defaultProds=[
   {id:6,name:'Samsung OLED 27" 144Hz',desc:'شاشة OLED بدقة 4K وتحديث 144Hz لتجربة مرئية لا مثيل لها',price:2799,old:null,cat:'إلكترونيات',em:'🖥️',badge:null,bg:'#0d1a35'},
 ];
 
-// ===== JSONBIN API =====
-function getBinId(){return localStorage.getItem(BIN_KEY)||''}
-function getMasterKey(){return localStorage.getItem(MKEY)||''}
+// ===== FIREBASE REST API =====
+function getFbUrl(){
+  const u=localStorage.getItem(FB_KEY)||'';
+  return u.replace(/\/+$/,''); // remove trailing slash
+}
+function isConfigured(){return !!getFbUrl();}
 function getPw(){return localStorage.getItem(PWKEY)||DEF_PW}
-function isConfigured(){return !!(getBinId()&&getMasterKey())}
 
 async function fetchProds(){
   if(!isConfigured()) return [...defaultProds];
   try{
-    const r=await fetch('https://api.jsonbin.io/v3/b/'+getBinId()+'/latest',{
-      headers:{'X-Master-Key':getMasterKey(),'X-Bin-Meta':'false'}
-    });
+    const r=await fetch(getFbUrl()+'/products.json');
     if(!r.ok) throw new Error('HTTP '+r.status);
     const data=await r.json();
-    return Array.isArray(data)?data:(data.products||[...defaultProds]);
-  }catch(e){console.error('fetchProds',e);return [...defaultProds];}
+    if(!data) return [...defaultProds];
+    return Array.isArray(data)?data:Object.values(data);
+  }catch(e){
+    console.error('fetchProds',e);
+    return [...defaultProds];
+  }
 }
 
 async function saveProds(prods){
   if(!isConfigured()){
-    toast('⚠️ لم يتم ربط قاعدة البيانات — اذهب للإعدادات','err');
+    toast('⚠️ ربط Firebase أولاً من الإعدادات','err');
     return false;
   }
   try{
-    const r=await fetch('https://api.jsonbin.io/v3/b/'+getBinId(),{
+    const r=await fetch(getFbUrl()+'/products.json',{
       method:'PUT',
-      headers:{'Content-Type':'application/json','X-Master-Key':getMasterKey()},
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify(prods)
     });
     if(!r.ok) throw new Error('HTTP '+r.status);
     return true;
   }catch(e){
     console.error('saveProds',e);
-    toast('❌ فشل الحفظ — تحقق من الإعدادات','err');
+    toast('❌ فشل الحفظ: '+e.message,'err');
     return false;
   }
 }
 
-async function initBin(){
-  // اقرأ من خانة الإدخال مباشرة، ليس من localStorage
-  const inputKey=(document.getElementById('inp-mkey').value||'').trim();
-  const key=inputKey||getMasterKey();
-  if(!key){toast('الصق X-MASTER-KEY في الخانة أعلاه أولاً','err');return;}
-  // احفظ فوراً في localStorage
-  if(inputKey) localStorage.setItem(MKEY,inputKey);
-  const btn=document.getElementById('initBinBtn');
-  btn.textContent='⏳ جاري الإنشاء...';btn.disabled=true;
-  try{
-    const r=await fetch('https://api.jsonbin.io/v3/b',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'X-Master-Key':key,
-        'X-Bin-Name':'SIYA Store Products',
-        'X-Bin-Private':'false'
-      },
-      body:JSON.stringify(defaultProds)
-    });
-    if(!r.ok){
-      const t=await r.text();
-      let msg=t;
-      try{const j=JSON.parse(t);msg=j.message||t;}catch{}
-      if(r.status===401) msg='المفتاح غير صحيح — تأكد من نسخ X-MASTER-KEY كاملاً';
-      throw new Error(msg);
-    }
-    const data=await r.json();
-    const binId=data.metadata.id;
-    localStorage.setItem(BIN_KEY,binId);
-    document.getElementById('inp-binid').value=binId;
-    renderSettingsStatus();
-    toast('🎉 تم الربط! المشترون يرون المنتجات الآن');
-  }catch(e){
-    console.error('initBin',e);
-    toast('❌ '+e.message,'err');
-  }finally{btn.textContent='🚀 إنشاء قاعدة بيانات جديدة تلقائياً';btn.disabled=false;}
+function saveFirebase(){
+  const url=(document.getElementById('inp-fburl').value||'').trim();
+  if(!url){toast('أدخل رابط Firebase أولاً','err');return;}
+  if(!url.includes('firebaseio.com')){toast('الرابط يجب أن يحتوي على firebaseio.com','err');return;}
+  localStorage.setItem(FB_KEY,url.replace(/\/+$/,''));
+  renderSettingsStatus();
+  toast('✅ تم ربط Firebase! يمكنك إضافة المنتجات الآن');
 }
 
 // ===== LOADING =====
@@ -1221,18 +1159,20 @@ function renderSettingsStatus(){
   const configured=isConfigured();
   const el=document.getElementById('dbStatus');
   if(!el)return;
-  el.innerHTML=configured
-    ?'<div style="background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:10px;margin-bottom:20px"><span style="color:#22c55e;font-size:18px">✓</span><div><div style="color:#22c55e;font-weight:600;font-size:14px">قاعدة البيانات متصلة</div><div style="color:var(--muted);font-size:12px;margin-top:2px">Bin ID: '+getBinId()+'</div></div></div>'
-    :'<div style="background:rgba(225,29,72,.1);border:1px solid rgba(225,29,72,.3);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:10px;margin-bottom:20px"><span style="color:var(--red2);font-size:18px">⚠️</span><div><div style="color:var(--red2);font-weight:600;font-size:14px">قاعدة البيانات غير مربوطة</div><div style="color:var(--muted);font-size:12px;margin-top:2px">المنتجات الافتراضية فقط مرئية — اتبع الخطوات أدناه</div></div></div>';
+  if(configured){
+    el.innerHTML='<div style="background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="font-size:22px">✅</span><div><div style="color:#22c55e;font-weight:600;font-size:14px">Firebase متصل</div><div style="color:var(--muted);font-size:12px;margin-top:3px">'+getFbUrl()+'</div></div></div>';
+    const inp=document.getElementById('inp-fburl');
+    if(inp&&!inp.value) inp.value=getFbUrl();
+  } else {
+    el.innerHTML='<div style="background:rgba(225,29,72,.1);border:1px solid rgba(225,29,72,.3);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="font-size:22px">⚠️</span><div><div style="color:var(--red2);font-weight:600;font-size:14px">قاعدة البيانات غير مربوطة</div><div style="color:var(--muted);font-size:12px;margin-top:3px">اتبع الخطوات أدناه لربط Firebase</div></div></div>';
+  }
 }
 
 function saveSettings(){
   const pw=document.getElementById('newPw').value;
-  const binId=document.getElementById('inp-binid').value.trim();
-  const mkey=document.getElementById('inp-mkey').value.trim();
   if(pw){localStorage.setItem(PWKEY,pw);document.getElementById('newPw').value='';}
-  if(binId)localStorage.setItem(BIN_KEY,binId);
-  if(mkey)localStorage.setItem(MKEY,mkey);
+  toast('✓ تم حفظ الإعدادات');
+}
   renderSettingsStatus();
   toast('✓ تم حفظ الإعدادات');
 }
