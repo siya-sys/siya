@@ -937,10 +937,14 @@ async function saveProds(prods){
 }
 
 async function initBin(){
-  const key=getMasterKey();
-  if(!key){toast('أدخل Master Key أولاً','err');return;}
+  // اقرأ من خانة الإدخال مباشرة، ليس من localStorage
+  const inputKey=(document.getElementById('inp-mkey').value||'').trim();
+  const key=inputKey||getMasterKey();
+  if(!key){toast('الصق X-MASTER-KEY في الخانة أعلاه أولاً','err');return;}
+  // احفظ فوراً في localStorage
+  if(inputKey) localStorage.setItem(MKEY,inputKey);
   const btn=document.getElementById('initBinBtn');
-  btn.textContent='جاري الإنشاء...';btn.disabled=true;
+  btn.textContent='⏳ جاري الإنشاء...';btn.disabled=true;
   try{
     const r=await fetch('https://api.jsonbin.io/v3/b',{
       method:'POST',
@@ -952,16 +956,23 @@ async function initBin(){
       },
       body:JSON.stringify(defaultProds)
     });
-    if(!r.ok){const t=await r.text();throw new Error(t);}
+    if(!r.ok){
+      const t=await r.text();
+      let msg=t;
+      try{const j=JSON.parse(t);msg=j.message||t;}catch{}
+      if(r.status===401) msg='المفتاح غير صحيح — تأكد من نسخ X-MASTER-KEY كاملاً';
+      throw new Error(msg);
+    }
     const data=await r.json();
     const binId=data.metadata.id;
     localStorage.setItem(BIN_KEY,binId);
     document.getElementById('inp-binid').value=binId;
-    toast('✓ تم إنشاء قاعدة البيانات! Bin ID: '+binId);
     renderSettingsStatus();
+    toast('🎉 تم الربط! المشترون يرون المنتجات الآن');
   }catch(e){
-    toast('❌ خطأ: '+e.message,'err');
-  }finally{btn.textContent='🚀 إنشاء قاعدة بيانات جديدة';btn.disabled=false;}
+    console.error('initBin',e);
+    toast('❌ '+e.message,'err');
+  }finally{btn.textContent='🚀 إنشاء قاعدة بيانات جديدة تلقائياً';btn.disabled=false;}
 }
 
 // ===== LOADING =====
